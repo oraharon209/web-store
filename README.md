@@ -22,6 +22,15 @@ The Web Store Application is composed of the following main components:
 - **Container Orchestration**: Deployed on AWS EKS, utilizing Helm charts for managing Kubernetes resources.
 - **Continuous Deployment**: Integrated with Argo CD for automatic updates and deployments whenever there is a source code update.
 
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- Kubernetes cluster up and running.
+- ArgoCD installed and configured on your Kubernetes cluster.
+- Helm installed on your local machine.
+- Docker installed for building images.
+
 ## Getting Started
 
 To use this project properly, you should create separate GitHub repositories for the source code (`web-app-source`) and deployment configuration (`web-app-store`):
