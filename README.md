@@ -51,7 +51,7 @@ To use this project properly, you should create separate GitHub repositories for
 4. **Modify the `values.yaml` File and GitHub Workflow**:
    - Navigate to the `web-app-store` directory.
    - Modify the `values.yaml` file according to your environment and configuration needs (e.g., database connection strings, Kafka configurations, Docker image names, etc.).
-   - Additionally, modify the `.github/workflow` files to ensure the CI/CD pipeline is correctly configured to build and deploy the application based on your repository settings.
+   - Additionally, modify the `.github/workflow` files(in both repos) to ensure the CI/CD pipeline is correctly configured to build and deploy the application based on your repository settings.
 
 5. **Configure Argo CD**:
    - Ensure that Argo CD is set up in your Kubernetes cluster.
