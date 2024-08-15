@@ -1,6 +1,6 @@
 # Web Store Application
 
-Welcome to the **Web Store Application** repository! This project is a fully containerized web application that represents a store, providing users with the ability to browse, select, and manage products.
+Welcome to the **Web Store Application** repository! This project is a fully containerized web application that represents a store, providing users with the ability to browse, select, and manage products. A GitHub Action workflow has been implemented to ensure continuous integration and deployment of the application.
 
 ## Features
 
