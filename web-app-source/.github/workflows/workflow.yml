@@ -17,8 +17,8 @@ jobs:
     
     - name: Build the Docker image
       run: |
-        docker build ./backend --file backend/Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/web-store-be:${{ github.run_number }}
-        docker build ./frontend --file frontend/Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/web-store-fe:${{ github.run_number }}
+        docker build ./backend --file backend/Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/<YOUR-BACKEND-REPO>:${{ github.run_number }}
+        docker build ./frontend --file frontend/Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/<YOUR-FRONTEND-REPO>:${{ github.run_number }}
 
     - name: Login to Docker Hub
       uses: docker/login-action@v3
@@ -28,13 +28,13 @@ jobs:
 
     - name: push to dockerhub
       run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/web-store-be:${{ github.run_number }}
-        docker push ${{ secrets.DOCKER_USERNAME }}/web-store-fe:${{ github.run_number }}
+        docker push ${{ secrets.DOCKER_USERNAME }}/<YOUR-BACKEND-REPO>:${{ github.run_number }}
+        docker push ${{ secrets.DOCKER_USERNAME }}/<YOUR-FRONTEND-REPO>:${{ github.run_number }}
         
     - name: Check out my other repo
       uses: actions/checkout@master
       with:
-        repository: oraharon/web-app-store
+        repository: <YOUR-USERNAME>/web-app-store
 
     - name: Install YQ
       uses: dcarbone/install-yq-action@v1.1.1

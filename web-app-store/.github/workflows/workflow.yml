@@ -22,7 +22,7 @@ jobs:
       - name: Update Deployment Image Tag
         working-directory: ./chart/webserverchart
         run: |
-          yq -i '.clientWebServer.clientWebServer.image.tag |= "8"' values.yaml
+          yq -i '.clientWebServer.clientWebServer.image.tag |= "YOUR-TAG"' values.yaml
 
       - name: Commit changes
         run: |
