@@ -1,0 +1,33 @@
+name: CD
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install YQ
+        uses: dcarbone/install-yq-action@v1.1.1
+
+      - name: Update Deployment Image Tag
+        working-directory: ./chart/webserverchart
+        run: |
+          yq -i '.clientWebServer.clientWebServer.image.tag |= "8"' values.yaml
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add values.yaml
+          git commit -m "Updated values.yaml with new tag"
+          git push

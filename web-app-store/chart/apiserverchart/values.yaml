@@ -1,0 +1,17 @@
+apiServer:
+  apiServer:
+    env:
+      kafkaIp: "kafkachart-kafka-helm-b.default.svc.cluster.local"
+      monogIp: "mongodb-release.default.svc.cluster.local"
+      mongoUsername: "root"
+    image:
+      repository: oraharon/web-store-be
+      tag: "15"
+  replicas: 1
+kubernetesClusterDomain: cluster.local
+service:
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+  type: ClusterIP

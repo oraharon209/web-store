@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: a26a714dab05d4cceb5c5c38ca977aa2-1018260987.eu-north-1.elb.amazonaws.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web-store-client-webserverchart-service
+                port:
+                  number: 80
